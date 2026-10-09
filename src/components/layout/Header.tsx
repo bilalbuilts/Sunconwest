@@ -72,7 +72,7 @@ export function Header() {
                   href="/services"
                   aria-haspopup="true"
                   aria-expanded={mega}
-                  className="flex items-center gap-1 rounded-lg px-3 py-2 text-[0.86rem] font-medium text-heading hover:text-accent"
+                  className="flex items-center gap-1 rounded-lg px-3 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.06em] text-heading hover:text-accent"
                   onFocus={() => setMega(true)}
                 >
                   Services <ChevronDown size={15} aria-hidden />
@@ -88,7 +88,7 @@ export function Header() {
                               onClick={close}
                               className="block rounded-lg px-3 py-2.5 hover:bg-sand"
                             >
-                              <span className="block text-[0.88rem] font-medium text-heading">{s.name}</span>
+                              <span className="block text-[0.8rem] font-semibold uppercase tracking-[0.05em] text-heading">{s.name}</span>
                               <span className="line-clamp-1 text-[0.72rem] text-muted">{s.short}</span>
                             </Link>
                           </li>
@@ -112,7 +112,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={pathname === item.href ? "page" : undefined}
-                className={`rounded-lg px-3 py-2 text-[0.86rem] font-medium hover:text-accent ${
+                className={`rounded-lg px-3 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.06em] hover:text-accent ${
                   pathname === item.href ? "text-accent" : "text-heading"
                 }`}
               >
@@ -124,7 +124,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/get-quote" className="btn btn-accent hidden px-5 py-2 text-[0.85rem] sm:inline-flex">
+          <Link href="/get-quote" className="btn btn-accent hidden px-5 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.06em] sm:inline-flex">
             Get a Quote
           </Link>
           <button
@@ -147,7 +147,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="rounded-lg px-3 py-3 text-base font-medium text-heading hover:bg-sand"
+                className="rounded-lg px-3 py-3 text-[0.9rem] font-semibold uppercase tracking-[0.06em] text-heading hover:bg-sand"
               >
                 {item.label}
               </Link>

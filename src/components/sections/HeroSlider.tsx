@@ -130,10 +130,10 @@ export function HeroSlider() {
               aria-roledescription="slide"
               aria-label={`${index + 1} of ${slides.length}`}
             >
-              <p className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-accent backdrop-blur">
+              <p className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur">
                 {slide.label}
               </p>
-              <p className="mt-2 text-base text-white/85 sm:text-lg">{slide.caption}</p>
+              <p className="mt-2 text-base font-bold text-white sm:text-lg">{slide.caption}</p>
             </motion.div>
           </AnimatePresence>
         </div>

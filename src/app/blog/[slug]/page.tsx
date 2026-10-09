@@ -35,7 +35,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <div className="container-x max-w-3xl">
           <Breadcrumb items={[{ name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }]} />
           <p className="eyebrow mt-6">{post.category}</p>
-          <h1 className="mt-2 text-3xl font-semibold leading-tight sm:text-5xl">{post.title}</h1>
+          <h1 className="mt-2 text-3xl font-bold leading-tight sm:text-5xl">{post.title}</h1>
           <p className="mt-4 flex flex-wrap items-center gap-4 text-sm text-white/75">
             <span className="flex items-center gap-1.5"><User size={15} aria-hidden /> {post.author}</span>
             <span>{date}</span>

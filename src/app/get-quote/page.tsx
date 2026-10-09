@@ -26,7 +26,7 @@ export default function GetQuotePage() {
             <QuoteForm />
           </Suspense>
           <aside className="space-y-6 lg:pt-4">
-            <h2 className="text-2xl font-semibold text-heading">What happens next?</h2>
+            <h2 className="text-2xl font-bold text-heading">What happens next?</h2>
             <ul className="space-y-4">
               {[
                 "We review your request and contact you within one business day.",

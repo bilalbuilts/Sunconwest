@@ -95,7 +95,7 @@ body {
   h3,
   h4 {
     font-family: var(--font-heading), system-ui, sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.032em;
     line-height: 1.12;
     text-wrap: balance;
@@ -181,7 +181,7 @@ p {
 
   .prose-sw h2 {
     font-size: var(--text-2xl);
-    font-weight: 600;
+    font-weight: 700;
     margin: 2.2rem 0 0.6rem;
     color: var(--heading);
   }

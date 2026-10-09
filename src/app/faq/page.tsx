@@ -23,7 +23,7 @@ export default function FaqPage() {
         <div className="container-x max-w-4xl space-y-12">
           {faqGroups.map((g) => (
             <div key={g.category}>
-              <h2 className="mb-4 text-2xl font-semibold text-heading">{g.category}</h2>
+              <h2 className="mb-4 text-2xl font-bold text-heading">{g.category}</h2>
               <FAQAccordion items={g.items} />
             </div>
           ))}

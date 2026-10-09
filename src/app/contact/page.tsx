@@ -28,7 +28,7 @@ export default function ContactPage() {
       <section className="py-16">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <h2 className="text-2xl font-semibold text-heading">Talk to our team</h2>
+            <h2 className="text-2xl font-bold text-heading">Talk to our team</h2>
             <ul className="mt-6 space-y-5">
               {items.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex items-start gap-4">

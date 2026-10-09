@@ -33,7 +33,7 @@ export async function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-4 text-base font-semibold text-white">Services</h2>
+          <h2 className="mb-4 text-base font-bold text-white">Services</h2>
           <ul className="space-y-2 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
@@ -44,7 +44,7 @@ export async function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-4 text-base font-semibold text-white">Company</h2>
+          <h2 className="mb-4 text-base font-bold text-white">Company</h2>
           <ul className="space-y-2 text-sm">
             {[
               ["About Us", "/about"],
@@ -63,7 +63,7 @@ export async function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-4 text-base font-semibold text-white">Service areas</h2>
+          <h2 className="mb-4 text-base font-bold text-white">Service areas</h2>
           <ul className="flex flex-wrap gap-2 text-xs">
             {site.serviceAreas.map((a) => (
               <li key={a} className="rounded-full border border-white/20 px-3 py-1">{a}</li>

@@ -10,7 +10,7 @@ export function PostCard({ post }: { post: Post }) {
       </div>
       <div className="p-6">
         <p className="text-xs font-medium uppercase tracking-wider text-accent">{post.category} &middot; {post.readMins} min read</p>
-        <h2 className="mt-2 text-xl font-semibold leading-snug text-heading">{post.title}</h2>
+        <h2 className="mt-2 text-xl font-bold leading-snug text-heading">{post.title}</h2>
         <p className="mt-2 line-clamp-3 text-sm text-muted">{post.excerpt}</p>
       </div>
     </Link>

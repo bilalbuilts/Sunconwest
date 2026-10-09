@@ -33,7 +33,7 @@ export function ContactForm() {
     return (
       <div className="rounded-3xl border border-line bg-surface p-10 text-center shadow-sm">
         <CheckCircle2 size={56} className="mx-auto text-green-600" aria-hidden />
-        <h2 className="mt-4 text-2xl font-semibold text-heading">Message sent</h2>
+        <h2 className="mt-4 text-2xl font-bold text-heading">Message sent</h2>
         <p className="mt-2 text-muted">Thanks for getting in touch. We&apos;ll reply within one business day.</p>
       </div>
     );
