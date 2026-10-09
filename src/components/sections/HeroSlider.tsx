@@ -27,8 +27,8 @@ const slides = [
   },
 ];
 
-const INTERVAL = 2500;
-const FADE = 0.8; // seconds, must stay well under INTERVAL
+const INTERVAL = 7000;
+const FADE = 1.2; // seconds, must stay well under INTERVAL
 
 const headline = [
   { text: "Construction & renovation,", from: -90, accent: false },
