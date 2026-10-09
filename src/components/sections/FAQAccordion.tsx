@@ -7,10 +7,10 @@ import { faqSchema } from "@/lib/seo";
 export function FAQAccordion({ items }: { items: { q: string; a: string }[] }) {
   return (
     <>
-      <div className="divide-y divide-line rounded-2xl border border-line bg-white">
+      <div className="divide-y divide-line rounded-2xl border border-line bg-surface">
         {items.map((item) => (
           <details key={item.q} className="group p-5 open:bg-sand/60">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-navy">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-heading">
               {item.q}
               <ChevronDown className="shrink-0 transition-transform group-open:rotate-180" size={20} aria-hidden />
             </summary>

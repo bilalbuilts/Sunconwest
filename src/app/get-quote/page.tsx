@@ -22,11 +22,11 @@ export default function GetQuotePage() {
       />
       <section className="bg-sand py-16">
         <div className="container-x grid gap-10 lg:grid-cols-[1.6fr_1fr]">
-          <Suspense fallback={<div className="h-96 animate-pulse rounded-3xl bg-white" />}>
+          <Suspense fallback={<div className="h-96 animate-pulse rounded-3xl bg-surface" />}>
             <QuoteForm />
           </Suspense>
           <aside className="space-y-6 lg:pt-4">
-            <h2 className="text-2xl font-extrabold text-navy">What happens next?</h2>
+            <h2 className="text-2xl font-semibold text-heading">What happens next?</h2>
             <ul className="space-y-4">
               {[
                 "We review your request and contact you within one business day.",
@@ -40,8 +40,8 @@ export default function GetQuotePage() {
               ))}
             </ul>
             <div className="rounded-2xl bg-navy p-6 text-white">
-              <p className="font-extrabold">Prefer to talk?</p>
-              <a href={site.phoneHref} className="mt-1 block text-xl font-extrabold text-accent">{site.phone}</a>
+              <p className="font-semibold">Prefer to talk?</p>
+              <a href={site.phoneHref} className="mt-1 block text-xl font-semibold text-accent">{site.phone}</a>
               <a href={`mailto:${site.email}`} className="mt-1 block text-sm text-white/80 hover:text-white">{site.email}</a>
             </div>
           </aside>

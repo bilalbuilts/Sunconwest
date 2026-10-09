@@ -37,7 +37,7 @@ export default async function CategoryPage({ params }: PageProps<"/blog/category
       />
       <section className="py-16">
         <div className="container-x">
-          <Link href="/blog" className="mb-8 inline-block font-bold text-accent">&larr; All articles</Link>
+          <Link href="/blog" className="mb-8 inline-block font-medium text-accent">&larr; All articles</Link>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {posts.filter((p) => p.category === name).map((p) => (
               <PostCard key={p.slug} post={p} />

@@ -35,7 +35,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <div className="container-x max-w-3xl">
           <Breadcrumb items={[{ name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }]} />
           <p className="eyebrow mt-6">{post.category}</p>
-          <h1 className="mt-2 text-3xl font-extrabold leading-tight sm:text-5xl">{post.title}</h1>
+          <h1 className="mt-2 text-3xl font-semibold leading-tight sm:text-5xl">{post.title}</h1>
           <p className="mt-4 flex flex-wrap items-center gap-4 text-sm text-white/75">
             <span className="flex items-center gap-1.5"><User size={15} aria-hidden /> {post.author}</span>
             <span>{date}</span>
@@ -63,7 +63,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
 
           {service && (
             <div className="mt-10 rounded-2xl bg-sand p-6">
-              <p className="font-extrabold text-navy">Need help with {service.name.toLowerCase()}?</p>
+              <p className="font-semibold text-heading">Need help with {service.name.toLowerCase()}?</p>
               <p className="mt-1 text-sm text-muted">{service.short}</p>
               <div className="mt-4 flex flex-wrap gap-3">
                 <Link href={`/services/${service.slug}`} className="btn btn-navy py-2.5 text-sm">View {service.name} services</Link>

@@ -23,10 +23,10 @@ export default function BlogPage() {
       <section className="py-16">
         <div className="container-x">
           <ul className="mb-10 flex flex-wrap gap-2" aria-label="Categories">
-            <li><span className="rounded-full bg-navy px-4 py-1.5 text-sm font-bold text-white">All</span></li>
+            <li><span className="rounded-full bg-navy px-4 py-1.5 text-sm font-medium text-white">All</span></li>
             {categories.map((c) => (
               <li key={c}>
-                <Link href={`/blog/category/${slugifyCategory(c)}`} className="rounded-full border border-line px-4 py-1.5 text-sm font-semibold text-navy hover:border-accent hover:text-accent">
+                <Link href={`/blog/category/${slugifyCategory(c)}`} className="rounded-full border border-line px-4 py-1.5 text-sm font-semibold text-heading hover:border-accent hover:text-accent">
                   {c}
                 </Link>
               </li>

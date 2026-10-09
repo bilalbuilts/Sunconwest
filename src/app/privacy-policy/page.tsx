@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           <h2>6. Security and retention</h2>
           <p>We take reasonable steps to protect information from misuse, loss and unauthorised access, and keep it only as long as needed for the purposes above or as the law requires.</p>
           <h2>7. Access and correction</h2>
-          <p>You may request access to, or correction of, your personal information by contacting us at <a href={`mailto:${site.email}`} className="font-bold text-accent">{site.email}</a>.</p>
+          <p>You may request access to, or correction of, your personal information by contacting us at <a href={`mailto:${site.email}`} className="font-medium text-accent">{site.email}</a>.</p>
           <h2>8. Complaints</h2>
           <p>If you have a privacy concern, contact us first. You may also contact the Office of the Australian Information Commissioner (oaic.gov.au).</p>
           <h2>9. Contact</h2>

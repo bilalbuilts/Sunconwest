@@ -28,20 +28,20 @@ export default function ContactPage() {
       <section className="py-16">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <h2 className="text-2xl font-extrabold text-navy">Talk to our team</h2>
+            <h2 className="text-2xl font-semibold text-heading">Talk to our team</h2>
             <ul className="mt-6 space-y-5">
               {items.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex items-start gap-4">
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent"><Icon size={22} aria-hidden /></span>
                   <div>
-                    <p className="text-sm font-bold text-muted">{label}</p>
-                    {href ? <a href={href} className="font-extrabold text-navy hover:text-accent">{value}</a> : <p className="font-extrabold text-navy">{value}</p>}
+                    <p className="text-sm font-medium text-muted">{label}</p>
+                    {href ? <a href={href} className="font-semibold text-heading hover:text-accent">{value}</a> : <p className="font-semibold text-heading">{value}</p>}
                   </div>
                 </li>
               ))}
             </ul>
             <div className="mt-8 rounded-2xl bg-sand p-6">
-              <p className="font-extrabold text-navy">Emergency repairs</p>
+              <p className="font-semibold text-heading">Emergency repairs</p>
               <p className="mt-1 text-sm text-muted">For storm, leak or water damage, call us directly for the fastest response.</p>
             </div>
             <div className="mt-6 grid h-56 place-items-center rounded-2xl border border-dashed border-line bg-sand text-center text-sm text-muted">

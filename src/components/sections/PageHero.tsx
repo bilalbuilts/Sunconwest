@@ -23,7 +23,7 @@ export function PageHero({
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-deep/95 via-navy-deep/80 to-navy-deep/40" />
       <div className="container-x py-16 sm:py-24">
         <Breadcrumb items={crumbs} />
-        <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl">{title}</h1>
+        <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">{title}</h1>
         {lead && <p className="mt-4 max-w-2xl text-lg text-white/85">{lead}</p>}
         {children}
       </div>

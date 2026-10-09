@@ -93,7 +93,7 @@ export function HeroSlider() {
         >
           Suncon West PTY LTD &middot; Perth, WA
         </motion.p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.1] sm:text-6xl">
+        <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.1] sm:text-6xl">
           {headline.map((line, i) => (
             <span key={line.text} className="block overflow-hidden pb-1">
               <motion.span
@@ -127,7 +127,7 @@ export function HeroSlider() {
               aria-roledescription="slide"
               aria-label={`${index + 1} of ${slides.length}`}
             >
-              <p className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur">
+              <p className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-accent backdrop-blur">
                 {slide.label}
               </p>
               <p className="mt-3 text-lg text-white/85">{slide.caption}</p>

@@ -55,9 +55,9 @@ export function QuoteForm() {
 
   if (status === "done") {
     return (
-      <div className="rounded-3xl border border-line bg-white p-10 text-center shadow-sm">
+      <div className="rounded-3xl border border-line bg-surface p-10 text-center shadow-sm">
         <CheckCircle2 size={56} className="mx-auto text-green-600" aria-hidden />
-        <h2 className="mt-4 text-2xl font-extrabold text-navy">Thanks, we&apos;ve got your request</h2>
+        <h2 className="mt-4 text-2xl font-semibold text-heading">Thanks, we&apos;ve got your request</h2>
         <p className="mt-2 text-muted">We&apos;ll contact you within one business day. For anything urgent, call {site.phone}.</p>
       </div>
     );
@@ -66,12 +66,12 @@ export function QuoteForm() {
   const v = getValues();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="rounded-3xl border border-line bg-white p-6 shadow-sm sm:p-10">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="rounded-3xl border border-line bg-surface p-6 shadow-sm sm:p-10">
       <ol className="mb-8 flex items-center gap-2" aria-label="Progress">
         {steps.map((label, i) => (
           <li key={label} className="flex flex-1 items-center gap-2" aria-current={i === step ? "step" : undefined}>
-            <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-extrabold ${i <= step ? "bg-accent text-white" : "bg-sand text-muted"}`}>{i + 1}</span>
-            <span className={`hidden text-sm font-bold sm:inline ${i === step ? "text-navy" : "text-muted"}`}>{label}</span>
+            <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-semibold ${i <= step ? "bg-accent text-white" : "bg-sand text-muted"}`}>{i + 1}</span>
+            <span className={`hidden text-sm font-medium sm:inline ${i === step ? "text-heading" : "text-muted"}`}>{label}</span>
             {i < steps.length - 1 && <span className="h-0.5 flex-1 bg-line" aria-hidden />}
           </li>
         ))}
@@ -133,29 +133,29 @@ export function QuoteForm() {
 
       {step === 2 && (
         <div>
-          <h2 className="text-xl font-extrabold text-navy">Review your request</h2>
+          <h2 className="text-xl font-semibold text-heading">Review your request</h2>
           <dl className="mt-4 grid gap-x-8 gap-y-3 rounded-2xl bg-sand p-5 text-sm sm:grid-cols-2">
             {[
               ["Name", v.name], ["Phone", v.phone], ["Email", v.email], ["Suburb", v.suburb],
               ["Service", services.find((s) => s.slug === v.serviceSlug)?.name], ["Property", v.propertyType],
               ["Budget", v.budgetRange || "Not specified"], ["Timeline", v.timeline || "Not specified"],
             ].map(([k, val]) => (
-              <div key={k}><dt className="font-bold text-navy">{k}</dt><dd className="text-muted">{val}</dd></div>
+              <div key={k}><dt className="font-medium text-heading">{k}</dt><dd className="text-muted">{val}</dd></div>
             ))}
-            <div className="sm:col-span-2"><dt className="font-bold text-navy">Description</dt><dd className="whitespace-pre-wrap text-muted">{v.description}</dd></div>
+            <div className="sm:col-span-2"><dt className="font-medium text-heading">Description</dt><dd className="whitespace-pre-wrap text-muted">{v.description}</dd></div>
           </dl>
           <label className="mt-5 flex items-start gap-3 text-sm text-ink">
             <input type="checkbox" className="mt-1 h-4 w-4 accent-[#f26b1d]" {...register("consent")} />
-            <span>I agree to Suncon West contacting me about this request, as described in the <a href="/privacy-policy" className="font-bold text-accent underline">Privacy Policy</a>.</span>
+            <span>I agree to Suncon West contacting me about this request, as described in the <a href="/privacy-policy" className="font-medium text-accent underline">Privacy Policy</a>.</span>
           </label>
-          {errors.consent && <p role="alert" className="mt-1 text-sm font-semibold text-red-600">{errors.consent.message}</p>}
-          {status === "error" && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-700">{serverError}</p>}
+          {errors.consent && <p role="alert" className="mt-1 text-sm font-semibold text-red-600 dark:text-red-400">{errors.consent.message}</p>}
+          {status === "error" && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-700 dark:bg-red-950/50 dark:text-red-300">{serverError}</p>}
         </div>
       )}
 
       <div className="mt-8 flex items-center justify-between gap-3">
         {step > 0 ? (
-          <button type="button" onClick={() => setStep((s) => s - 1)} className="btn border-2 border-line text-navy hover:border-navy">Back</button>
+          <button type="button" onClick={() => setStep((s) => s - 1)} className="btn border-2 border-line text-heading hover:border-navy">Back</button>
         ) : <span />}
         {step < steps.length - 1 ? (
           <button type="button" onClick={next} className="btn btn-accent">Continue</button>

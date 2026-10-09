@@ -34,7 +34,7 @@ export default function AboutPage() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow">Our story</p>
-            <h2 className="mt-2 text-3xl font-extrabold text-navy sm:text-4xl">Every trade, one accountable team</h2>
+            <h2 className="mt-2 text-3xl font-semibold text-heading sm:text-4xl">Every trade, one accountable team</h2>
             <div className="prose-sw">
               <p>
                 {site.legalName} is a Perth-based construction company providing roofing, tiling, plumbing, painting, carpentry, remodelling, renovation, redesign and restoration services across Western Australia.
@@ -58,11 +58,11 @@ export default function AboutPage() {
       <section className="bg-navy py-20 text-white">
         <div className="container-x grid gap-10 md:grid-cols-2">
           <Reveal>
-            <h2 className="text-2xl font-extrabold">Our mission</h2>
+            <h2 className="text-2xl font-semibold">Our mission</h2>
             <p className="mt-3 text-white/80">To deliver safe, durable and beautifully finished construction work that gives Western Australian property owners complete confidence from quote to handover.</p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="text-2xl font-extrabold">Our vision</h2>
+            <h2 className="text-2xl font-semibold">Our vision</h2>
             <p className="mt-3 text-white/80">To be Western Australia&apos;s most trusted all-trades construction partner for homes and commercial properties.</p>
           </Reveal>
         </div>
@@ -70,13 +70,13 @@ export default function AboutPage() {
 
       <section className="py-20">
         <div className="container-x">
-          <h2 className="text-center text-3xl font-extrabold text-navy sm:text-4xl">What we stand for</h2>
+          <h2 className="text-center text-3xl font-semibold text-heading sm:text-4xl">What we stand for</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map(({ icon: Icon, title, text }, i) => (
               <Reveal key={title} delay={i * 0.06}>
                 <div className="h-full rounded-2xl border border-line p-6">
                   <span className="grid h-12 w-12 place-items-center rounded-xl bg-accent/10 text-accent"><Icon size={24} aria-hidden /></span>
-                  <h3 className="mt-4 text-lg font-extrabold text-navy">{title}</h3>
+                  <h3 className="mt-4 text-lg font-semibold text-heading">{title}</h3>
                   <p className="mt-1 text-sm text-muted">{text}</p>
                 </div>
               </Reveal>
@@ -87,7 +87,7 @@ export default function AboutPage() {
 
       <section className="bg-sand py-16">
         <div className="container-x max-w-3xl text-center">
-          <h2 className="text-2xl font-extrabold text-navy">Licences &amp; certifications</h2>
+          <h2 className="text-2xl font-semibold text-heading">Licences &amp; certifications</h2>
           <p className="mt-3 text-muted">
             Licence numbers, insurance details and ABN will be displayed here. Please supply them so we can publish them for customers to verify.
           </p>
