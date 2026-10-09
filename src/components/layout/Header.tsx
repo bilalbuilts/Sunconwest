@@ -40,14 +40,14 @@ export function Header() {
         scrolled ? "border-line bg-surface/95 shadow-sm backdrop-blur" : "border-transparent bg-surface"
       }`}
     >
-      <div className="bg-navy-deep text-xs text-white/85">
+      <div className="bg-navy-deep text-[0.72rem] text-white/85">
         <div className="container-x flex items-center justify-between py-2">
           <span className="hidden sm:inline">Perth, Western Australia &middot; {site.hours}</span>
           <div className="flex w-full items-center justify-between gap-4 sm:w-auto sm:justify-end">
             <a href={`mailto:${site.email}`} className="hover:text-accent">
               {site.email}
             </a>
-            <a href={site.phoneHref} className="flex items-center gap-1.5 font-semibold hover:text-accent">
+            <a href={site.phoneHref} className="flex items-center gap-1.5 font-medium hover:text-accent">
               <Phone size={13} aria-hidden /> {site.phone}
             </a>
           </div>
@@ -72,7 +72,7 @@ export function Header() {
                   href="/services"
                   aria-haspopup="true"
                   aria-expanded={mega}
-                  className="flex items-center gap-1 rounded-lg px-3 py-2 font-semibold text-heading hover:text-accent"
+                  className="flex items-center gap-1 rounded-lg px-3 py-2 text-[0.86rem] font-medium text-heading hover:text-accent"
                   onFocus={() => setMega(true)}
                 >
                   Services <ChevronDown size={15} aria-hidden />
@@ -88,8 +88,8 @@ export function Header() {
                               onClick={close}
                               className="block rounded-lg px-3 py-2.5 hover:bg-sand"
                             >
-                              <span className="block font-medium text-heading">{s.name}</span>
-                              <span className="line-clamp-1 text-xs text-muted">{s.short}</span>
+                              <span className="block text-[0.88rem] font-medium text-heading">{s.name}</span>
+                              <span className="line-clamp-1 text-[0.72rem] text-muted">{s.short}</span>
                             </Link>
                           </li>
                         ))}
@@ -112,7 +112,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={pathname === item.href ? "page" : undefined}
-                className={`rounded-lg px-3 py-2 font-semibold hover:text-accent ${
+                className={`rounded-lg px-3 py-2 text-[0.86rem] font-medium hover:text-accent ${
                   pathname === item.href ? "text-accent" : "text-heading"
                 }`}
               >
@@ -124,7 +124,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Link href="/get-quote" className="btn btn-accent hidden px-5 py-2.5 text-sm sm:inline-flex">
+          <Link href="/get-quote" className="btn btn-accent hidden px-5 py-2 text-[0.85rem] sm:inline-flex">
             Get a Quote
           </Link>
           <button
@@ -147,7 +147,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="rounded-lg px-3 py-3 text-lg font-medium text-heading hover:bg-sand"
+                className="rounded-lg px-3 py-3 text-base font-medium text-heading hover:bg-sand"
               >
                 {item.label}
               </Link>
@@ -159,7 +159,7 @@ export function Header() {
                   <Link
                     href={`/services/${s.slug}`}
                     onClick={close}
-                    className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-ink hover:bg-sand"
+                    className="block rounded-lg px-3 py-2.5 text-[0.85rem] font-medium text-ink hover:bg-sand"
                   >
                     {s.name}
                   </Link>

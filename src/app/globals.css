@@ -56,19 +56,19 @@
   --font-display: var(--font-heading);
 
   /* Fluid type scale: smooth from phone to desktop, with tighter leading on large sizes */
-  --text-sm: 0.9rem;
-  --text-base: 1.05rem;
-  --text-lg: clamp(1.1rem, 1.05rem + 0.25vw, 1.25rem);
-  --text-xl: clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem);
-  --text-2xl: clamp(1.45rem, 1.25rem + 1vw, 1.9rem);
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: clamp(1.05rem, 1rem + 0.2vw, 1.15rem);
+  --text-xl: clamp(1.1rem, 1.05rem + 0.35vw, 1.3rem);
+  --text-2xl: clamp(1.3rem, 1.15rem + 0.8vw, 1.65rem);
   --text-2xl--line-height: 1.2;
-  --text-3xl: clamp(1.75rem, 1.4rem + 1.8vw, 2.5rem);
+  --text-3xl: clamp(1.55rem, 1.3rem + 1.3vw, 2.15rem);
   --text-3xl--line-height: 1.15;
-  --text-4xl: clamp(2rem, 1.5rem + 2.5vw, 3.1rem);
+  --text-4xl: clamp(1.8rem, 1.4rem + 1.9vw, 2.7rem);
   --text-4xl--line-height: 1.1;
-  --text-5xl: clamp(2.3rem, 1.6rem + 3.4vw, 3.9rem);
+  --text-5xl: clamp(2rem, 1.5rem + 2.6vw, 3.3rem);
   --text-5xl--line-height: 1.05;
-  --text-6xl: clamp(2.5rem, 1.5rem + 4.6vw, 5rem);
+  --text-6xl: clamp(2.2rem, 1.4rem + 3.6vw, 4.1rem);
   --text-6xl--line-height: 1.02;
 }
 
@@ -83,21 +83,23 @@ body {
   font-size: var(--text-base);
   line-height: 1.72;
   font-weight: 400;
-  letter-spacing: 0.002em;
+  letter-spacing: -0.012em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 0.25s, color 0.25s;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-heading), system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.022em;
-  line-height: 1.12;
-  text-wrap: balance;
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading), system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.032em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
 }
 
 p {
@@ -138,8 +140,8 @@ p {
     border-radius: 999px;
     padding: 0.85rem 1.6rem;
     font-weight: 500;
-    font-size: 0.97rem;
-    letter-spacing: 0.005em;
+    font-size: 0.92rem;
+    letter-spacing: -0.005em;
     box-shadow: none;
     transition: transform 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s;
   }
@@ -171,8 +173,8 @@ p {
 
   .eyebrow {
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
     font-weight: 600;
     color: var(--accent);
   }
@@ -195,4 +197,29 @@ p {
     line-height: 1.85;
     color: var(--ink-soft);
   }
+}
+
+/* Hero headline: a soft light sweep that repeats, plus an orange shimmer on the key phrase */
+.sheen {
+  background: linear-gradient(100deg, #fff 0%, #fff 42%, #ffd9bd 50%, #fff 58%, #fff 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen 5s ease-in-out 1.8s infinite;
+}
+.sheen-accent {
+  background: linear-gradient(100deg, #f26b1d 0%, #f26b1d 40%, #ffb27a 50%, #f26b1d 60%, #f26b1d 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen 5s ease-in-out 2.2s infinite;
+}
+@keyframes sheen {
+  0%, 20% { background-position: 130% 0; }
+  60%, 100% { background-position: -30% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheen, .sheen-accent { animation: none; background-position: 0 0; }
 }
