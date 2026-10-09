@@ -27,7 +27,14 @@ const slides = [
   },
 ];
 
-const INTERVAL = 6500;
+const INTERVAL = 2500;
+const FADE = 0.8; // seconds, must stay well under INTERVAL
+
+const headline = [
+  { text: "Construction & renovation,", from: -90, accent: false },
+  { text: "done properly", from: 90, accent: true },
+  { text: "across Western Australia.", from: -90, accent: false },
+];
 
 export function HeroSlider() {
   const reduce = useReducedMotion();
@@ -63,13 +70,13 @@ export function HeroSlider() {
           className="absolute inset-0 -z-20"
           initial={false}
           animate={{ opacity: i === index ? 1 : 0 }}
-          transition={{ duration: reduce ? 0 : 1.2, ease: "easeInOut" }}
+          transition={{ duration: reduce ? 0 : FADE, ease: "easeInOut" }}
         >
           <motion.div
             className="absolute inset-0"
             initial={false}
             animate={reduce ? { scale: 1 } : i === index ? { scale: 1.12 } : { scale: 1 }}
-            transition={i === index ? { duration: (INTERVAL + 1200) / 1000, ease: "linear" } : { duration: 0 }}
+            transition={i === index ? { duration: (INTERVAL / 1000) + FADE, ease: "linear" } : { duration: 0 }}
           >
             <Image src={s.image} alt={s.alt} fill priority={i === 0} sizes="100vw" className="object-cover" />
           </motion.div>
@@ -78,19 +85,44 @@ export function HeroSlider() {
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-navy-deep/20" />
 
       <div className="container-x relative py-24 sm:py-32 lg:py-40">
-        <p className="eyebrow">Suncon West PTY LTD &middot; Perth, WA</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.05] sm:text-6xl">
-          Construction &amp; renovation, <span className="text-accent">done properly</span> across Western Australia.
+        <motion.p
+          className="eyebrow"
+          initial={reduce ? false : { opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Suncon West PTY LTD &middot; Perth, WA
+        </motion.p>
+        <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.1] sm:text-6xl">
+          {headline.map((line, i) => (
+            <span key={line.text} className="block overflow-hidden pb-1">
+              <motion.span
+                className={`block ${line.accent ? "text-accent" : ""}`}
+                initial={reduce ? false : { x: line.from, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.25 + i * 0.35, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {line.text}
+              </motion.span>
+            </span>
+          ))}
         </h1>
+        <motion.span
+          aria-hidden
+          className="mt-4 block h-1 w-24 origin-left rounded-full bg-accent"
+          initial={reduce ? false : { scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.6, delay: 1.35, ease: "easeOut" }}
+        />
 
         <div className="mt-6 min-h-[7.5rem] max-w-xl sm:min-h-[6.5rem]" aria-live={playing ? "off" : "polite"}>
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              initial={reduce ? false : { opacity: 0, y: 18 }}
+              initial={reduce ? false : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? undefined : { opacity: 0, y: -12 }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
+              exit={reduce ? undefined : { opacity: 0, y: -10 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
               role="group"
               aria-roledescription="slide"
               aria-label={`${index + 1} of ${slides.length}`}
@@ -103,10 +135,15 @@ export function HeroSlider() {
           </AnimatePresence>
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <motion.div
+          className="mt-6 flex flex-col gap-3 sm:flex-row"
+          initial={reduce ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.5 }}
+        >
           <Link href="/get-quote" className="btn btn-accent">Get a Free Quote <ArrowRight size={18} aria-hidden /></Link>
           <Link href="/services" className="btn btn-outline">Explore Services</Link>
-        </div>
+        </motion.div>
 
         {/* Controls */}
         <div className="mt-10 flex items-center gap-4">
