@@ -9,6 +9,7 @@ import { pageMeta } from "@/lib/seo";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceCard } from "@/components/sections/ServiceCard";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
+import { HeroSlider } from "@/components/sections/HeroSlider";
 import { CTASection } from "@/components/sections/CTASection";
 
 export const metadata = pageMeta({
@@ -35,31 +36,7 @@ const process = [
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-navy-deep text-white">
-        <Image
-          src="/images/hero-modern-home.jpg"
-          alt="Modern Australian home surrounded by gum trees at dusk"
-          fill
-          priority
-          sizes="100vw"
-          className="-z-20 object-cover"
-        />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-navy-deep/20" />
-        <div className="container-x py-24 sm:py-32 lg:py-40">
-          <p className="eyebrow">Suncon West PTY LTD &middot; Perth, WA</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.05] sm:text-6xl">
-            Construction &amp; renovation, <span className="text-accent">done properly</span> across Western Australia.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-white/85">
-            Roofing, tiling, plumbing, painting, carpentry, remodelling and restoration for homes, offices, apartments and commercial buildings.
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link href="/get-quote" className="btn btn-accent">Get a Free Quote <ArrowRight size={18} aria-hidden /></Link>
-            <Link href="/services" className="btn btn-outline">Explore Services</Link>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* Trust bar */}
       <section className="border-b border-line bg-sand">
