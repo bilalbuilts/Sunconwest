@@ -18,6 +18,8 @@
   --brand: #1b4b6b;
   --accent: #f26b1d;
   --accent-dark: #d65a12;
+  --font-heading: var(--font-redhat);
+  --font-body: var(--font-redhat);
 }
 
 [data-theme="dark"] {
@@ -55,7 +57,7 @@
 
   /* Fluid type scale: smooth from phone to desktop, with tighter leading on large sizes */
   --text-sm: 0.9rem;
-  --text-base: 1.0625rem;
+  --text-base: 1.05rem;
   --text-lg: clamp(1.1rem, 1.05rem + 0.25vw, 1.25rem);
   --text-xl: clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem);
   --text-2xl: clamp(1.45rem, 1.25rem + 1vw, 1.9rem);
@@ -79,8 +81,9 @@ body {
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: var(--text-base);
-  line-height: 1.7;
+  line-height: 1.72;
   font-weight: 400;
+  letter-spacing: 0.002em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 0.25s, color 0.25s;
@@ -92,7 +95,8 @@ h3,
 h4 {
   font-family: var(--font-heading), system-ui, sans-serif;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.022em;
+  line-height: 1.12;
   text-wrap: balance;
 }
 

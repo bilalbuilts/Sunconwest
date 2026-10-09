@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -8,8 +8,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { localBusinessSchema } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-const heading = Bricolage_Grotesque({ variable: "--font-heading", subsets: ["latin"], display: "swap" });
-const body = Inter({ variable: "--font-body", subsets: ["latin"], display: "swap" });
+const redHat = Red_Hat_Display({ variable: "--font-redhat", subsets: ["latin"], display: "swap" });
 
 // Runs before first paint so there is no light/dark flash.
 const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}})()`;
@@ -37,7 +36,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-AU" className={`${heading.variable} ${body.variable} h-full`} suppressHydrationWarning>
+    <html lang="en-AU" className={`${redHat.variable} h-full`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
