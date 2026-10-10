@@ -1,11 +1,16 @@
 import { z } from "zod";
 
+// Accepts local or international formats (spaces, brackets, dashes, leading +) and requires 8-15 digits.
 const phone = z
   .string()
   .trim()
-  .min(8, "Please enter a valid phone number")
-  .max(20)
-  .regex(/^[+\d][\d\s()-]+$/, "Please enter a valid phone number");
+  .min(1, "Please enter your phone number")
+  .max(25, "Phone number is too long")
+  .regex(/^\+?[\d\s().-]+$/, "Phone number can only contain digits, spaces and + ( ) -")
+  .refine((s) => {
+    const digits = s.replace(/\D/g, "").length;
+    return digits >= 8 && digits <= 15;
+  }, "Please enter a valid phone number (8 to 15 digits)");
 
 export const quoteSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
@@ -25,7 +30,7 @@ export type QuoteInput = z.infer<typeof quoteSchema>;
 export const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
   email: z.email("Please enter a valid email").max(200),
-  phone: phone.optional().or(z.literal("")),
+  phone,
   message: z.string().trim().min(10, "Please enter a message (at least 10 characters)").max(3000),
   website: z.string().max(0).optional(), // honeypot
 });

@@ -65,8 +65,8 @@ export function ContactForm() {
         <Field label="Email" htmlFor="c-email" error={errors.email?.message} icon={<Mail size={18} />}>
           <input id="c-email" type="email" autoComplete="email" placeholder="you@example.com" className={iconInputCls} {...register("email")} />
         </Field>
-        <Field label="Phone (optional)" htmlFor="c-phone" error={errors.phone?.message} icon={<Phone size={18} />}>
-          <input id="c-phone" type="tel" autoComplete="tel" placeholder="04xx xxx xxx" className={iconInputCls} {...register("phone")} />
+        <Field label="Phone" htmlFor="c-phone" error={errors.phone?.message} icon={<Phone size={18} />}>
+          <input id="c-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="04xx xxx xxx" className={iconInputCls} {...register("phone")} />
         </Field>
       </div>
 
