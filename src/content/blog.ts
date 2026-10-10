@@ -28,7 +28,7 @@ export const posts: Post[] = [
     image: "/images/roofing.jpg",
     imageAlt: "Roofer inspecting a roof next to a ladder",
     author: "Suncon West Team",
-    date: "2026-09-01",
+    date: "2026-07-13",
     readMins: 4,
     body: [
       { type: "p", text: "Perth roofs live a tough life: intense UV, salty coastal air and sharp winter storms. Even a well-built roof wears out. Catching problems early can be the difference between a repair and a full replacement." },
