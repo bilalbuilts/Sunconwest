@@ -41,7 +41,7 @@ export default function Home() {
       {/* Trust bar */}
       <section className="border-b border-line bg-sand">
         <ul className="container-x grid grid-cols-2 gap-4 py-6 text-center text-sm font-medium text-heading md:grid-cols-4">
-          {["9 trades & services", "Homes to commercial", "Free written quotes", "Perth & WA-wide"].map((t) => (
+          {["9 Trades & Services", "Homes to Commercial", "Free Quotation", "Perth & WA-Wide"].map((t) => (
             <li key={t} className="flex items-center justify-center gap-2">
               <CheckCircle2 size={18} className="text-accent" aria-hidden /> {t}
             </li>
