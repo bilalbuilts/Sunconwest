@@ -1,19 +1,26 @@
-// Placeholder wordmark. Swap for <Image src="/logo.svg" .../> once the real logo is supplied.
-export function Logo({ light = false }: { light?: boolean }) {
+import Image from "next/image";
+import { site } from "@/lib/site";
+
+// Brand logo (1138 x 193). Two files so the charcoal lettering stays readable on dark backgrounds:
+//   /images/Sunconwest-Logo.png        dark lettering  -> light backgrounds
+//   /images/Sunconwest-Logo-Light.png  cream lettering -> dark backgrounds
+const LOGO = { width: 1138, height: 193, unoptimized: true } as const;
+const ALT = `${site.name} - Construction, Perth WA`;
+const SIZE = "h-9 w-auto sm:h-10";
+
+/**
+ * `light` = the logo sits on a surface that is always dark (the footer), so it always uses the cream version.
+ * Otherwise it follows the site theme (data-theme on <html>, driven by the theme toggle). Both <img> tags are
+ * lazy by default, so the browser only downloads the one that is actually displayed.
+ */
+export function Logo({ light = false, className = SIZE }: { light?: boolean; className?: string }) {
+  if (light) {
+    return <Image {...LOGO} src="/images/Sunconwest-Logo-Light.png" alt={ALT} className={`block ${className}`} />;
+  }
   return (
-    <span className="flex items-center gap-2.5">
-      <span
-        aria-hidden
-        className="grid h-10 w-10 place-items-center rounded-lg bg-accent text-xl font-semibold text-white"
-      >
-        S
-      </span>
-      <span className={`font-[family-name:var(--font-heading)] leading-none ${light ? "text-white" : "text-heading"}`}>
-        <span className="block text-xl font-semibold tracking-tight">SUNCON WEST</span>
-        <span className="block text-[0.62rem] font-medium uppercase tracking-[0.3em] text-accent">
-          Construction · Perth WA
-        </span>
-      </span>
-    </span>
+    <>
+      <Image {...LOGO} src="/images/Sunconwest-Logo.png" alt={ALT} fetchPriority="high" className={`block dark:hidden ${className}`} />
+      <Image {...LOGO} src="/images/Sunconwest-Logo-Light.png" alt={ALT} fetchPriority="high" className={`hidden dark:block ${className}`} />
+    </>
   );
 }

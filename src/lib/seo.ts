@@ -37,6 +37,7 @@ export const localBusinessSchema = {
   email: site.email,
   description: site.description,
   image: absUrl("/images/hero-modern-home.jpg"),
+  logo: absUrl("/images/Sunconwest-Logo.png"),
   address: {
     "@type": "PostalAddress",
     addressLocality: site.address.locality,

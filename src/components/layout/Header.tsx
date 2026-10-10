@@ -42,7 +42,7 @@ export function Header() {
     >
       <div className="bg-navy-deep text-[0.72rem] text-white/85">
         <div className="container-x flex items-center justify-between py-2">
-          <span className="hidden sm:inline">Perth, Western Australia &middot; {site.hours}</span>
+          <span className="hidden sm:inline">Perth, Western Australia</span>
           <div className="flex w-full items-center justify-between gap-4 sm:w-auto sm:justify-end">
             <a href={`mailto:${site.email}`} className="hover:text-accent">
               {site.email}
