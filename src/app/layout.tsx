@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Red_Hat_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -36,11 +37,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-AU" className={`${redHat.variable} h-full`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
+    <html lang="en-AU" className={`${redHat.variable} h-full`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="flex min-h-full flex-col pb-16 lg:pb-0">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
         <a
           href="#main"
           className="sr-only z-[100] rounded bg-accent px-4 py-2 font-medium text-white focus:not-sr-only focus:fixed focus:left-3 focus:top-3"
