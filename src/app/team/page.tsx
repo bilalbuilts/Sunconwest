@@ -3,7 +3,6 @@ import { Users } from "lucide-react";
 import { initials, team } from "@/content/team";
 import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
-import { OrgChart } from "@/components/sections/OrgChart";
 import { CTASection } from "@/components/sections/CTASection";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -24,19 +23,6 @@ export default function TeamPage() {
         imageAlt="Construction team in high-visibility vests on site"
         crumbs={[{ name: "Team", path: "/team" }]}
       />
-
-      <section className="py-20">
-        <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">How we are organised</p>
-            <h2 className="mt-2 text-3xl font-bold text-heading sm:text-4xl">Company structure</h2>
-            <p className="mt-3 text-muted">Clear leadership and a single point of contact on every job, from first quote to final handover.</p>
-          </Reveal>
-          <div className="mt-12">
-            <OrgChart members={team} />
-          </div>
-        </div>
-      </section>
 
       <section className="bg-sand py-20">
         <div className="container-x">

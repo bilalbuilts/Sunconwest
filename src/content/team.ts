@@ -13,9 +13,9 @@ export type Member = {
 /**
  * HOW TO EDIT THE TEAM
  * - Add a person: copy a line below, give it a unique `id`, set `name` and `role`.
- * - Place them in the chart: set `reportsTo` to the `id` of their manager.
+ * - `reportsTo` is optional (only used if an org chart is shown again).
  * - Remove a person: delete their line (and re-point anyone who reported to them).
- * The org chart and the team cards on /team update automatically.
+ * The team cards on /team update automatically.
  * Names below are placeholders: replace them with your real employees.
  */
 export const team: Member[] = [
