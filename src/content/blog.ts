@@ -80,7 +80,7 @@ export const posts: Post[] = [
     image: "/images/site-crew.jpg",
     imageAlt: "Construction crew in high-visibility vests on site",
     author: "Suncon West Team",
-    date: "2026-10-01",
+    date: "2026-10-09",
     readMins: 4,
     body: [
       { type: "p", text: "Choosing the right contractor is the single biggest decision in any renovation. A little due diligence up front protects your money and your home." },
