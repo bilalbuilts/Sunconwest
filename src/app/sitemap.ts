@@ -4,7 +4,7 @@ import { services } from "@/content/services";
 import { categories, posts, slugifyCategory } from "@/content/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const fixed = ["/", "/about", "/services", "/blog", "/faq", "/contact", "/get-quote", "/privacy-policy", "/terms"];
+  const fixed = ["/", "/about", "/team", "/services", "/blog", "/faq", "/contact", "/get-quote", "/privacy-policy", "/terms"];
   return [
     ...fixed.map((p) => ({ url: absUrl(p), priority: p === "/" ? 1 : 0.7 })),
     ...services.map((s) => ({ url: absUrl(`/services/${s.slug}`), priority: 0.9 })),

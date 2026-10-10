@@ -48,6 +48,7 @@ export async function Footer() {
           <ul className="space-y-2 text-sm">
             {[
               ["About Us", "/about"],
+              ["Our Team", "/team"],
               ["Get a Quote", "/get-quote"],
               ["Contact Us", "/contact"],
               ["Blog", "/blog"],

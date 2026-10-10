@@ -18,6 +18,7 @@
   --brand: #4a2f47;
   --accent: #f26b1d;
   --accent-dark: #d65a12;
+  --org-line: #c9bcc6;
   --font-heading: var(--font-redhat);
   --font-body: var(--font-redhat);
 }
@@ -37,6 +38,7 @@
   --brand: #6b4466;
   --accent: #ff7a2e;
   --accent-dark: #ff8f4f;
+  --org-line: #5a4258;
 }
 
 @theme inline {
@@ -220,6 +222,74 @@ p {
   0%, 20% { background-position: 130% 0; }
   60%, 100% { background-position: -30% 0; }
 }
+/* Organisation chart connectors (desktop) */
+.org-tree ul {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-top: 28px;
+}
+.org-tree > div > ul {
+  padding-top: 0;
+}
+.org-tree li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 28px 10px 0;
+}
+.org-tree > div > ul > li {
+  padding-top: 0;
+}
+.org-tree li::before,
+.org-tree li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 28px;
+  border-top: 2px solid var(--org-line);
+}
+.org-tree li::before {
+  right: 50%;
+}
+.org-tree li::after {
+  left: 50%;
+  border-left: 2px solid var(--org-line);
+}
+.org-tree > div > ul > li::before,
+.org-tree > div > ul > li::after {
+  display: none;
+}
+.org-tree li:only-child::before,
+.org-tree li:only-child::after {
+  display: none;
+}
+.org-tree li:only-child {
+  padding-top: 28px;
+}
+.org-tree li:first-child::before,
+.org-tree li:last-child::after {
+  border: 0 none;
+}
+.org-tree li:last-child::before {
+  border-right: 2px solid var(--org-line);
+  border-radius: 0 8px 0 0;
+}
+.org-tree li:first-child::after {
+  border-radius: 8px 0 0 0;
+}
+.org-tree ul ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 28px;
+  border-left: 2px solid var(--org-line);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sheen, .sheen-accent { animation: none; background-position: 0 0; }
 }
