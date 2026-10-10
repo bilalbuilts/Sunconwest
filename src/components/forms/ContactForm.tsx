@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Loader2, Mail, MessageSquare, Phone, Send, User } from "lucide-react";
 import { contactSchema, type ContactInput } from "@/lib/validations";
+import { formatAuPhone } from "@/lib/phone";
 import { Field, iconInputCls } from "./Field";
 
 export function ContactForm() {
@@ -66,7 +67,7 @@ export function ContactForm() {
           <input id="c-email" type="email" autoComplete="email" placeholder="you@example.com" className={iconInputCls} {...register("email")} />
         </Field>
         <Field label="Phone" htmlFor="c-phone" error={errors.phone?.message} icon={<Phone size={18} />}>
-          <input id="c-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="04xx xxx xxx" className={iconInputCls} {...register("phone")} />
+          <input id="c-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="04xx xxx xxx" className={iconInputCls} maxLength={16} {...register("phone", { onChange: (e) => { e.target.value = formatAuPhone(e.target.value); } })} />
         </Field>
       </div>
 

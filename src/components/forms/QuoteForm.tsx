@@ -8,6 +8,7 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { budgetRanges, propertyTypes, quoteSchema, timelines, type QuoteInput } from "@/lib/validations";
 import { services } from "@/content/services";
 import { site } from "@/lib/site";
+import { formatAuPhone } from "@/lib/phone";
 import { Field, inputCls } from "./Field";
 
 const steps = ["Your details", "Your project", "Review"] as const;
@@ -86,7 +87,7 @@ export function QuoteForm() {
             <input id="name" autoComplete="name" className={inputCls} {...register("name")} />
           </Field>
           <Field label="Phone" htmlFor="phone" error={errors.phone?.message}>
-            <input id="phone" type="tel" autoComplete="tel" className={inputCls} {...register("phone")} />
+            <input id="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="04xx xxx xxx" className={inputCls} maxLength={16} {...register("phone", { onChange: (e) => { e.target.value = formatAuPhone(e.target.value); } })} />
           </Field>
           <Field label="Email" htmlFor="email" error={errors.email?.message}>
             <input id="email" type="email" autoComplete="email" className={inputCls} {...register("email")} />

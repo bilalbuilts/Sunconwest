@@ -1,16 +1,15 @@
 import { z } from "zod";
+import { checkAuPhone } from "./phone";
 
-// Accepts local or international formats (spaces, brackets, dashes, leading +) and requires 8-15 digits.
+// Strict Australian numbers only (mobile, landline, 13/1300/1800). See src/lib/phone.ts.
 const phone = z
   .string()
   .trim()
-  .min(1, "Please enter your phone number")
-  .max(25, "Phone number is too long")
-  .regex(/^\+?[\d\s().-]+$/, "Phone number can only contain digits, spaces and + ( ) -")
-  .refine((s) => {
-    const digits = s.replace(/\D/g, "").length;
-    return digits >= 8 && digits <= 15;
-  }, "Please enter a valid phone number (8 to 15 digits)");
+  .max(20, "That number has too many digits")
+  .superRefine((value, ctx) => {
+    const r = checkAuPhone(value);
+    if (!r.ok) ctx.addIssue({ code: "custom", message: r.message });
+  });
 
 export const quoteSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
