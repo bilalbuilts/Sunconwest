@@ -87,7 +87,7 @@ export default function AboutPage() {
 
       <section className="bg-sand py-16">
         <div className="container-x max-w-3xl text-center">
-          <h2 className="text-2xl font-bold text-heading">Licences &amp; certifications</h2>
+          <h2 className="text-2xl font-bold text-heading">Licences &amp; Certifications</h2>
           <p className="mt-3 text-muted">
             Licence numbers, insurance details and ABN will be displayed here. Please supply them so we can publish them for customers to verify.
           </p>
