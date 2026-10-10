@@ -17,6 +17,8 @@ export default function ContactPage() {
     { icon: MapPin, label: "Location", value: "Perth, Western Australia" },
     { icon: Clock, label: "Hours", value: site.hours },
   ];
+  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&z=11&output=embed`;
+
   return (
     <>
       <PageHero
@@ -26,28 +28,37 @@ export default function ContactPage() {
         crumbs={[{ name: "Contact", path: "/contact" }]}
       />
       <section className="py-16">
-        <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
+        {/* Both columns stretch to the same height: the map grows to fill the left column and the message box grows to fill the form */}
+        <div className="container-x grid items-stretch gap-8 lg:grid-cols-2">
+          <div className="flex flex-col">
             <h2 className="text-2xl font-bold text-heading">Talk to our team</h2>
-            <ul className="mt-6 space-y-5">
+            <ul className="mt-6 grid gap-5 sm:grid-cols-2">
               {items.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex items-start gap-4">
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent"><Icon size={22} aria-hidden /></span>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-sm font-medium text-muted">{label}</p>
-                    {href ? <a href={href} className="font-semibold text-heading hover:text-accent">{value}</a> : <p className="font-semibold text-heading">{value}</p>}
+                    {href ? (
+                      <a href={href} className="break-words font-semibold text-heading hover:text-accent">{value}</a>
+                    ) : (
+                      <p className="font-semibold text-heading">{value}</p>
+                    )}
                   </div>
                 </li>
               ))}
             </ul>
-            <div className="mt-8 rounded-2xl bg-sand p-6">
-              <p className="font-semibold text-heading">Emergency repairs</p>
-              <p className="mt-1 text-sm text-muted">For storm, leak or water damage, call us directly for the fastest response.</p>
-            </div>
-            <div className="mt-6 grid h-56 place-items-center rounded-2xl border border-dashed border-line bg-sand text-center text-sm text-muted">
-              Map embed goes here once the office address is confirmed.
+
+            <div className="mt-8 min-h-72 flex-1 overflow-hidden rounded-3xl border border-line bg-sand">
+              <iframe
+                title="Suncon West service area map"
+                src={mapSrc}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full min-h-72 w-full border-0"
+              />
             </div>
           </div>
+
           <ContactForm />
         </div>
       </section>

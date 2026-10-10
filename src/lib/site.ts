@@ -10,6 +10,8 @@ export const site = {
   email: "hr@sunconwest.com",
   // TODO: replace with the real office address, ABN and builder/trade licence numbers.
   address: { locality: "Perth", region: "WA", country: "AU" },
+  /** What the contact page map shows. Swap for the full street address once confirmed. */
+  mapQuery: "Perth, Western Australia",
   abn: "",
   licence: "",
   hours: "Mon–Fri 7:00am – 5:00pm",
