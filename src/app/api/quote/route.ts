@@ -32,6 +32,6 @@ export async function POST(request: Request) {
     },
     d.email,
   );
-  if (!sent) return NextResponse.json({ ok: false, error: "We couldn't send your request. Please call us." }, { status: 502 });
+  if (!sent) return NextResponse.json({ ok: false, error: "We couldn't send your request. Please WhatsApp or email us." }, { status: 502 });
   return NextResponse.json({ ok: true });
 }

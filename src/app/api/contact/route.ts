@@ -17,6 +17,6 @@ export async function POST(request: Request) {
   if (d.website) return NextResponse.json({ ok: true });
 
   const sent = await notify("New website message", { Name: d.name, Email: d.email, Phone: d.phone, Message: d.message }, d.email);
-  if (!sent) return NextResponse.json({ ok: false, error: "We couldn't send your message. Please call us." }, { status: 502 });
+  if (!sent) return NextResponse.json({ ok: false, error: "We couldn't send your message. Please WhatsApp or email us." }, { status: 502 });
   return NextResponse.json({ ok: true });
 }

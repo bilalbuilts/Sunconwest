@@ -41,7 +41,7 @@ export default function GetQuotePage() {
             </ul>
             <div className="rounded-2xl bg-navy p-6 text-white">
               <p className="font-semibold">Prefer to talk?</p>
-              <a href={site.phoneHref} className="mt-1 block text-xl font-semibold text-accent">{site.phone}</a>
+              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="mt-1 block text-xl font-semibold text-accent">{site.phone}</a>
               <a href={`mailto:${site.email}`} className="mt-1 block text-sm text-white/80 hover:text-white">{site.email}</a>
             </div>
           </aside>

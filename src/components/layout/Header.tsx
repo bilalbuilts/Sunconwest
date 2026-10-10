@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Menu, MessageCircle, X } from "lucide-react";
 import { nav, site } from "@/lib/site";
 import { services } from "@/content/services";
 import { Logo } from "./Logo";
@@ -47,8 +47,8 @@ export function Header() {
             <a href={`mailto:${site.email}`} className="hover:text-accent">
               {site.email}
             </a>
-            <a href={site.phoneHref} className="flex items-center gap-1.5 font-medium hover:text-accent">
-              <Phone size={13} aria-hidden /> {site.phone}
+            <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-medium hover:text-accent">
+              <MessageCircle size={13} aria-hidden /> {site.phone}
             </a>
           </div>
         </div>

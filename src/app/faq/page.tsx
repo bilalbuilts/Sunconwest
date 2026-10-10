@@ -29,7 +29,7 @@ export default function FaqPage() {
           ))}
         </div>
       </section>
-      <CTASection title="Still have a question?" text="Call us or send a message and we'll get back to you within one business day." />
+      <CTASection title="Still have a question?" text="WhatsApp us or send a message and we'll get back to you within one business day." />
     </>
   );
 }

@@ -58,7 +58,7 @@ export function QuoteForm() {
       <div className="rounded-3xl border border-line bg-surface p-10 text-center shadow-sm">
         <CheckCircle2 size={56} className="mx-auto text-green-600" aria-hidden />
         <h2 className="mt-4 text-2xl font-bold text-heading">Thanks, we&apos;ve got your request</h2>
-        <p className="mt-2 text-muted">We&apos;ll contact you within one business day. For anything urgent, call {site.phone}.</p>
+        <p className="mt-2 text-muted">We&apos;ll contact you within one business day. For anything urgent, WhatsApp us on {site.phone}.</p>
       </div>
     );
   }

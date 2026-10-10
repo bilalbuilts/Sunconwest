@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, MessageCircle } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { PageHero } from "@/components/sections/PageHero";
@@ -12,7 +12,7 @@ export const metadata = pageMeta({
 
 export default function ContactPage() {
   const items = [
-    { icon: Phone, label: "Phone", value: site.phone, href: site.phoneHref },
+    { icon: MessageCircle, label: "Phone / WhatsApp", value: site.phone, href: site.whatsappHref },
     { icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}` },
     { icon: MapPin, label: "Location", value: "Perth, Western Australia" },
     { icon: Clock, label: "Hours", value: site.hours },
@@ -39,7 +39,11 @@ export default function ContactPage() {
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-muted">{label}</p>
                     {href ? (
-                      <a href={href} className="break-words font-semibold text-heading hover:text-accent">{value}</a>
+                      <a
+                        href={href}
+                        {...(href.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="break-words font-semibold text-heading hover:text-accent"
+                      >{value}</a>
                     ) : (
                       <p className="font-semibold text-heading">{value}</p>
                     )}

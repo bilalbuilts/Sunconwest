@@ -13,7 +13,7 @@ export const faqGroups: FaqGroup[] = [
   {
     category: "Quotes & Pricing",
     items: [
-      { q: "How do I get a quote?", a: "Use our Get a Quote form or call us. We'll talk through your project, arrange a site visit if needed, and send a written quote." },
+      { q: "How do I get a quote?", a: "Use our Get a Quote form or WhatsApp us. We'll talk through your project, arrange a site visit if needed, and send a written quote." },
       { q: "Is the quote free?", a: "Yes, our standard quotes are free and come with no obligation." },
       { q: "What affects the cost of my project?", a: "Size, access, materials, existing condition, approvals and timing. Your written quote itemises the scope so you can see where the cost sits." },
     ],
@@ -36,7 +36,7 @@ export const faqGroups: FaqGroup[] = [
   {
     category: "Emergencies",
     items: [
-      { q: "Do you handle emergency repairs?", a: "Yes. For storm, leak or water damage we prioritise make-safe works. Call us directly for the fastest response." },
+      { q: "Do you handle emergency repairs?", a: "Yes. For storm, leak or water damage we prioritise make-safe works. Message us directly on WhatsApp for the fastest response." },
     ],
   },
 ];

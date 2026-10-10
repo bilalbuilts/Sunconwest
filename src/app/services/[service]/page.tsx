@@ -87,8 +87,8 @@ export default async function ServicePage({ params }: PageProps<"/services/[serv
               <h2 className="text-xl font-bold">Request a {s.name.toLowerCase()} quote</h2>
               <p className="mt-2 text-sm text-white/75">Free, written and no obligation.</p>
               <Link href={`/get-quote?service=${s.slug}`} className="btn btn-accent mt-5 w-full">Get a Quote</Link>
-              <a href={site.phoneHref} className="mt-3 block text-center text-sm font-semibold text-white/85 hover:text-accent">
-                or call {site.phone}
+              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="mt-3 block text-center text-sm font-semibold text-white/85 hover:text-accent">
+                or WhatsApp {site.phone}
               </a>
             </div>
           </aside>

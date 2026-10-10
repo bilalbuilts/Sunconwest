@@ -20,7 +20,7 @@ export async function Footer() {
           <ul className="mt-5 space-y-2 text-sm">
             <li className="flex items-center gap-2">
               <Phone size={15} className="text-accent" aria-hidden />
-              <a href={site.phoneHref} className="hover:text-white">{site.phone}</a>
+              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-white">{site.phone}</a>
             </li>
             <li className="flex items-center gap-2">
               <Mail size={15} className="text-accent" aria-hidden />

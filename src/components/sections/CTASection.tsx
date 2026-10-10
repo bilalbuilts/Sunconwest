@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { site } from "@/lib/site";
 
 export function CTASection({
@@ -20,8 +20,8 @@ export function CTASection({
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link href="/get-quote" className="btn btn-accent">Get a Free Quote</Link>
-          <a href={site.phoneHref} className="btn btn-outline">
-            <Phone size={18} aria-hidden /> {site.phone}
+          <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+            <MessageCircle size={18} aria-hidden /> {site.phone}
           </a>
         </div>
       </div>

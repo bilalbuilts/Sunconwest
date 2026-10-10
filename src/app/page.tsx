@@ -26,7 +26,7 @@ const why = [
 ];
 
 const process = [
-  { icon: ClipboardList, title: "Enquire", text: "Send a quote request or call us." },
+  { icon: ClipboardList, title: "Enquire", text: "Send a quote request or WhatsApp us." },
   { icon: HardHat, title: "Site Visit & Quote", text: "We inspect, scope and price the work." },
   { icon: Hammer, title: "Build", text: "Our trades deliver, with regular updates." },
   { icon: KeyRound, title: "Handover", text: "Final walk-through and aftercare." },

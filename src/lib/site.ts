@@ -5,8 +5,10 @@ export const site = {
   description:
     "Suncon West PTY LTD is a Perth construction company delivering roofing, tiling, plumbing, painting, carpentry, remodelling, renovation, redesign and restoration across Western Australia.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sunconwest.com",
-  phone: "+61 313 42 16 458",
-  phoneHref: "tel:+613134216458",
+  phone: "+61 403 651 889",
+  /** Every phone number on the site opens a WhatsApp chat with this number (international format, digits only). */
+  whatsappNumber: "61403651889",
+  whatsappHref: `https://wa.me/61403651889?text=${encodeURIComponent("Hello Suncon West, I would like to make an enquiry.")}`,
   email: "hr@sunconwest.com",
   // TODO: replace with the real office address, ABN and builder/trade licence numbers.
   address: { locality: "Perth", region: "WA", country: "AU" },
