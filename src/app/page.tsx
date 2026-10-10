@@ -4,7 +4,6 @@ import { ArrowRight, CheckCircle2, ClipboardList, HardHat, Hammer, KeyRound, Map
 import { services } from "@/content/services";
 import { homeFaqs } from "@/content/faqs";
 import { posts } from "@/content/blog";
-import { site } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceCard } from "@/components/sections/ServiceCard";
@@ -178,18 +177,6 @@ export default function Home() {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Service area */}
-      <section className="py-16">
-        <div className="container-x text-center">
-          <h2 className="text-2xl font-bold text-heading">Serving Perth and Western Australia</h2>
-          <ul className="mx-auto mt-5 flex max-w-3xl flex-wrap justify-center gap-2">
-            {site.serviceAreas.map((a) => (
-              <li key={a} className="rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-semibold text-heading">{a}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
