@@ -32,8 +32,8 @@ export default function TeamPage() {
           </Reveal>
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((m, i) => (
-              <Reveal key={m.id} delay={(i % 4) * 0.06}>
-                <li className="h-full list-none rounded-2xl border border-line bg-surface p-6 text-center">
+              <li key={m.id} className="list-none">
+                <Reveal delay={(i % 4) * 0.06} className="h-full rounded-2xl border border-line bg-surface p-6 text-center">
                   {m.photo ? (
                     <Image src={m.photo} alt={m.name} width={96} height={96} className="mx-auto h-24 w-24 rounded-full object-cover" />
                   ) : (
@@ -44,8 +44,8 @@ export default function TeamPage() {
                   <h3 className="mt-4 text-lg font-bold text-heading">{m.name}</h3>
                   <p className="mt-0.5 text-sm font-semibold text-accent">{m.role}</p>
                   {m.bio && <p className="mt-3 text-sm text-muted">{m.bio}</p>}
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ul>
         </div>
