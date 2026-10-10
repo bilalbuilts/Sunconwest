@@ -113,6 +113,13 @@ p {
   outline-offset: 2px;
 }
 
+/* Form controls show their own focus treatment (border + glow + underline) */
+input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
