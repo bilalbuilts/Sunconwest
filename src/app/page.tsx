@@ -110,15 +110,12 @@ export default function Home() {
               { src: "/images/living-interior.jpg", alt: "Open-plan living room", cls: "" },
               { src: "/images/remodeling.jpg", alt: "Remodelled kitchen", cls: "" },
               { src: "/images/office-fitout.jpg", alt: "Commercial office fit-out", cls: "col-span-2" },
-              { src: "/images/pool-residence.jpg", alt: "Modern residence with pool", cls: "" },
-              { src: "/images/commercial-cranes.jpg", alt: "Commercial construction with cranes", cls: "" },
             ].map((g, i) => (
               <Reveal key={g.src} delay={i * 0.05} className={`relative overflow-hidden rounded-2xl ${g.cls}`}>
                 <Image src={g.src} alt={g.alt} fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover transition duration-500 hover:scale-105" />
               </Reveal>
             ))}
           </div>
-          <p className="mt-4 text-center text-xs text-muted">Images are illustrative. Real Suncon West project photos will be added.</p>
         </div>
       </section>
 
