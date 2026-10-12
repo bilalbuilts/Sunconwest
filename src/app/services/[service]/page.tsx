@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +13,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { CTASection } from "@/components/sections/CTASection";
 import { ServiceCard } from "@/components/sections/ServiceCard";
+import { PageSkeleton } from "@/components/ui/PageSkeleton";
 
 export function generateStaticParams() {
   return services.map((s) => ({ service: s.slug }));
@@ -29,7 +31,7 @@ export async function generateMetadata({ params }: PageProps<"/services/[service
   });
 }
 
-export default async function ServicePage({ params }: PageProps<"/services/[service]">) {
+async function ServiceContent({ params }: { params: Promise<{ service: string }> }) {
   const { service } = await params;
   const s = getService(service);
   if (!s) notFound();
@@ -87,7 +89,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[serv
               <h2 className="text-xl font-bold">Request a {s.name.toLowerCase()} quote</h2>
               <p className="mt-2 text-sm text-white/75">Free, written and no obligation.</p>
               <Link href={`/get-quote?service=${s.slug}`} className="btn btn-accent mt-5 w-full">Get a Quote</Link>
-              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="mt-3 block text-center text-sm font-semibold text-white/85 hover:text-accent">
+              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="mt-1 block py-3 text-center text-sm font-semibold text-white/85 hover:text-accent">
                 or WhatsApp {site.phone}
               </a>
             </div>
@@ -145,5 +147,14 @@ export default async function ServicePage({ params }: PageProps<"/services/[serv
         }}
       />
     </>
+  );
+}
+
+// The page shell stays static; the URL param is read inside Suspense so navigations stay instant.
+export default function ServicePage({ params }: PageProps<"/services/[service]">) {
+  return (
+    <Suspense fallback={<PageSkeleton />}>
+      <ServiceContent params={params} />
+    </Suspense>
   );
 }

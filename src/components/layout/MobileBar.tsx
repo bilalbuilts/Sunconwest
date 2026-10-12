@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export function MobileBar() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-px bg-navy-deep lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-px bg-navy-deep pb-[env(safe-area-inset-bottom)] lg:hidden">
       <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 py-3.5 font-medium text-white">
         <MessageCircle size={18} aria-hidden /> WhatsApp
       </a>

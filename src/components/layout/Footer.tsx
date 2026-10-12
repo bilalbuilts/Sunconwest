@@ -20,11 +20,11 @@ export async function Footer() {
           <ul className="mt-5 space-y-2 text-sm">
             <li className="flex items-center gap-2">
               <Phone size={15} className="text-accent" aria-hidden />
-              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-white">{site.phone}</a>
+              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-block py-1 hover:text-white">{site.phone}</a>
             </li>
             <li className="flex items-center gap-2">
               <Mail size={15} className="text-accent" aria-hidden />
-              <a href={`mailto:${site.email}`} className="hover:text-white">{site.email}</a>
+              <a href={`mailto:${site.email}`} className="inline-block py-1 hover:text-white">{site.email}</a>
             </li>
             <li className="flex items-center gap-2">
               <MapPin size={15} className="text-accent" aria-hidden /> Perth, Western Australia
@@ -37,7 +37,7 @@ export async function Footer() {
           <ul className="space-y-2 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="hover:text-accent">{s.name}</Link>
+                <Link href={`/services/${s.slug}`} className="inline-block py-1 hover:text-accent">{s.name}</Link>
               </li>
             ))}
           </ul>
@@ -57,7 +57,7 @@ export async function Footer() {
               ["Terms & Conditions", "/terms"],
             ].map(([label, href]) => (
               <li key={href}>
-                <Link href={href} className="hover:text-accent">{label}</Link>
+                <Link href={href} className="inline-block py-1 hover:text-accent">{label}</Link>
               </li>
             ))}
           </ul>

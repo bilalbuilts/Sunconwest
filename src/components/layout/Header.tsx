@@ -22,6 +22,31 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close the menu whenever the route changes (state adjusted during render, as React recommends).
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setOpen(false);
+    setMega(false);
+  }
+
+  // Also close on Escape, or when the viewport grows to desktop size.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        setMega(false);
+      }
+    };
+    const onResize = () => window.innerWidth >= 1024 && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -41,13 +66,13 @@ export function Header() {
       }`}
     >
       <div className="bg-navy-deep text-[0.72rem] text-white/85">
-        <div className="container-x flex items-center justify-between py-2">
+        <div className="container-x flex items-center justify-between">
           <span className="hidden sm:inline">Perth, Western Australia</span>
           <div className="flex w-full items-center justify-between gap-4 sm:w-auto sm:justify-end">
-            <a href={`mailto:${site.email}`} className="hover:text-accent">
+            <a href={`mailto:${site.email}`} className="py-2.5 hover:text-accent">
               {site.email}
             </a>
-            <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-medium hover:text-accent">
+            <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 py-2.5 font-medium hover:text-accent">
               <MessageCircle size={13} aria-hidden /> {site.phone}
             </a>
           </div>
@@ -129,7 +154,7 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="rounded-lg p-2 text-heading lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-lg text-heading lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -140,8 +165,8 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="fixed inset-x-0 bottom-0 top-[6.6rem] z-40 overflow-y-auto bg-surface lg:hidden">
-          <nav aria-label="Mobile" className="container-x flex flex-col gap-1 py-6">
+        <div className="absolute inset-x-0 top-full z-40 max-h-[calc(100dvh-6.9rem-3.5rem)] overflow-y-auto overscroll-contain border-t border-line bg-surface lg:hidden">
+          <nav aria-label="Mobile" className="container-x flex flex-col gap-1 py-5">
             {nav.map((item) => (
               <Link
                 key={item.href}

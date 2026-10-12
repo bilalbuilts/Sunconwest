@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -10,6 +11,7 @@ import { site } from "@/lib/site";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { CTASection } from "@/components/sections/CTASection";
+import { PageSkeleton } from "@/components/ui/PageSkeleton";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -22,7 +24,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
   return pageMeta({ title: p.title, description: p.excerpt, path: `/blog/${p.slug}`, image: p.image, type: "article" });
 }
 
-export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
+async function PostContent({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
@@ -89,5 +91,14 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         }}
       />
     </>
+  );
+}
+
+// The page shell stays static; the URL param is read inside Suspense so navigations stay instant.
+export default function PostPage({ params }: PageProps<"/blog/[slug]">) {
+  return (
+    <Suspense fallback={<PageSkeleton />}>
+      <PostContent params={params} />
+    </Suspense>
   );
 }

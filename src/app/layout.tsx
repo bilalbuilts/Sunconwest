@@ -33,12 +33,13 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-AU" className={`${redHat.variable} h-full`} data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className="flex min-h-full flex-col pb-16 lg:pb-0">
+      <body className="flex min-h-full flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom))] lg:pb-0">
         <Script id="theme-init" strategy="beforeInteractive">
           {themeScript}
         </Script>

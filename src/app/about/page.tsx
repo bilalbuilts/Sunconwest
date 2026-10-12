@@ -7,7 +7,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata = pageMeta({
-  title: "About Suncon West PTY LTD | Perth Construction Company",
+  title: "About Us | Perth Construction Company",
   description:
     "Learn about Suncon West PTY LTD, a Perth-based construction company delivering roofing, tiling, plumbing, painting, carpentry, renovation and restoration across WA.",
   path: "/about",

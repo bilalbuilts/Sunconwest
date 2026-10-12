@@ -10,8 +10,8 @@ const SIZE = "h-9 w-auto sm:h-10";
 
 /**
  * `light` = the logo sits on a surface that is always dark (the footer), so it always uses the cream version.
- * Otherwise it follows the site theme (data-theme on <html>, driven by the theme toggle). Both <img> tags are
- * lazy by default, so the browser only downloads the one that is actually displayed.
+ * Otherwise it follows the site theme (data-theme on <html>, driven by the theme toggle). The light-theme logo loads eagerly
+ * (it is the LCP element for most visitors); the cream version stays lazy so it is only fetched in dark mode.
  */
 export function Logo({ light = false, className = SIZE }: { light?: boolean; className?: string }) {
   if (light) {
@@ -19,8 +19,8 @@ export function Logo({ light = false, className = SIZE }: { light?: boolean; cla
   }
   return (
     <>
-      <Image {...LOGO} src="/images/Sunconwest-Logo.png" alt={ALT} fetchPriority="high" className={`block dark:hidden ${className}`} />
-      <Image {...LOGO} src="/images/Sunconwest-Logo-Light.png" alt={ALT} fetchPriority="high" className={`hidden dark:block ${className}`} />
+      <Image {...LOGO} src="/images/Sunconwest-Logo.png" alt={ALT} loading="eager" fetchPriority="high" className={`block dark:hidden ${className}`} />
+      <Image {...LOGO} src="/images/Sunconwest-Logo-Light.png" alt={ALT} className={`hidden dark:block ${className}`} />
     </>
   );
 }

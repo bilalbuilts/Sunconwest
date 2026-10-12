@@ -9,12 +9,12 @@ export function FAQAccordion({ items }: { items: { q: string; a: string }[] }) {
     <>
       <div className="divide-y divide-line rounded-2xl border border-line bg-surface">
         {items.map((item) => (
-          <details key={item.q} className="group p-5 open:bg-sand/60">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-heading">
+          <details key={item.q} className="group open:bg-sand/60">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-medium text-heading">
               {item.q}
               <ChevronDown className="shrink-0 transition-transform group-open:rotate-180" size={20} aria-hidden />
             </summary>
-            <p className="mt-3 leading-relaxed text-muted">{item.a}</p>
+            <p className="px-5 pb-5 leading-relaxed text-muted">{item.a}</p>
           </details>
         ))}
       </div>

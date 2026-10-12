@@ -27,7 +27,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       onClick={toggle}
       aria-label={`Switch to ${next} mode`}
       title={`Switch to ${next} mode`}
-      className={`grid h-9 w-9 place-items-center rounded-full border border-line text-heading transition-colors hover:border-accent hover:text-accent ${className}`}
+      className={`grid h-10 w-10 place-items-center rounded-full border border-line text-heading transition-colors hover:border-accent hover:text-accent ${className}`}
     >
       {theme === "dark" ? <Sun size={18} aria-hidden /> : <Moon size={18} aria-hidden />}
     </button>

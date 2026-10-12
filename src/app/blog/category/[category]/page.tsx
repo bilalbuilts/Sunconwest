@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -5,6 +6,7 @@ import { categories, posts, slugifyCategory } from "@/content/blog";
 import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { PostCard } from "@/components/sections/PostCard";
+import { PageSkeleton } from "@/components/ui/PageSkeleton";
 
 const find = (slug: string) => categories.find((c) => slugifyCategory(c) === slug);
 
@@ -23,7 +25,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/category/[ca
   });
 }
 
-export default async function CategoryPage({ params }: PageProps<"/blog/category/[category]">) {
+async function CategoryContent({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
   const name = find(category);
   if (!name) notFound();
@@ -46,5 +48,14 @@ export default async function CategoryPage({ params }: PageProps<"/blog/category
         </div>
       </section>
     </>
+  );
+}
+
+// The page shell stays static; the URL param is read inside Suspense so navigations stay instant.
+export default function CategoryPage({ params }: PageProps<"/blog/category/[category]">) {
+  return (
+    <Suspense fallback={<PageSkeleton />}>
+      <CategoryContent params={params} />
+    </Suspense>
   );
 }

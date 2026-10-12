@@ -165,8 +165,9 @@ export function HeroSlider() {
                 aria-selected={i === index}
                 aria-label={`Show slide ${i + 1}: ${s.label}`}
                 onClick={() => go(i)}
-                className="relative h-1.5 w-12 overflow-hidden rounded-full bg-white/30"
+                className="group flex h-10 w-12 items-center"
               >
+                <span className="relative block h-1.5 w-full overflow-hidden rounded-full bg-white/30 transition-colors group-hover:bg-white/50">
                 {i === index && (
                   <motion.span
                     key={`${index}-${playing && !hover}`}
@@ -176,6 +177,7 @@ export function HeroSlider() {
                     transition={{ duration: reduce || !playing || hover ? 0 : INTERVAL / 1000, ease: "linear" }}
                   />
                 )}
+                </span>
               </button>
             ))}
           </div>
