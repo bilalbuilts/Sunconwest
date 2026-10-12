@@ -130,7 +130,7 @@ export default function Home() {
               <Reveal key={title} delay={i * 0.08}>
                 <li className="relative h-full rounded-2xl bg-surface p-6 shadow-sm">
                   <span className="absolute right-5 top-4 text-5xl font-semibold text-heading/10">{i + 1}</span>
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-navy text-white"><Icon size={22} aria-hidden /></span>
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-navy text-white dark:bg-accent/15 dark:text-accent"><Icon size={22} aria-hidden /></span>
                   <h3 className="mt-4 text-lg font-bold text-heading">{title}</h3>
                   <p className="mt-1 text-sm text-muted">{text}</p>
                 </li>
